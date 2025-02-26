@@ -1,0 +1,16 @@
+class Car:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    @classmethod
+    def from_string(cls, car_str):
+        brand, model, year = car_str.split("-")
+        return cls(brand, model, int(year))
+
+car1 = Car("Toyota", "Corolla", 2022)
+car2 = Car.from_string("Honda-Civic-2023")
+
+print(car1.__dict__)
+print(car2.__dict__)
