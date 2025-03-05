@@ -1,0 +1,39 @@
+
+class Vehicle {
+    
+    public void start() {
+        System.out.println("Vehicle is starting...");
+    }
+}
+
+
+class Car extends Vehicle {
+    
+    @Override
+    public void start() {
+        System.out.println("Car is starting...");
+    }
+}
+
+
+class Bike extends Vehicle {
+    
+    @Override
+    public void start() {
+        System.out.println("Bike is starting...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Vehicle vehicle1 = new Car();
+        Vehicle vehicle2 = new Bike(); 
+       
+        System.out.println("Calling start on vehicle1 (Car object):");
+        vehicle1.start();  
+        
+        System.out.println("Calling start on vehicle2 (Bike object):");
+        vehicle2.start(); 
+    }
+}
