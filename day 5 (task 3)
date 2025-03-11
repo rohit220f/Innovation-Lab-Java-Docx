@@ -1,0 +1,83 @@
+class Battery {
+    private int capacity;  
+    public Battery(int capacity) {
+        this.capacity = capacity;
+    }
+    public int getCapacity() {
+        return capacity;
+    }
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+    @Override
+    public String toString() {
+        return "Battery Capacity: " + capacity + "mAh";
+    }
+}
+class Mobile {
+    private String model;
+    private Battery battery;
+public Mobile(String model, Battery battery) {
+        this.model = model;
+        this.battery = battery;
+    }
+  public String getModel() {
+        return model;
+    }
+public Battery getBattery() {
+        return battery;
+    }
+@Override
+    public String toString() {
+        return "Mobile Model: " + model + ", " + battery.toString();
+    }
+}
+class Employee {
+    private String name;
+    private int id;
+  public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+public String getName() {
+        return name;
+    }
+public int getId() {
+        return id;
+    }
+@Override
+    public String toString() {
+        return "Employee Name: " + name + ", ID: " + id;
+    }
+}
+import java.util.ArrayList;
+class Department {
+    private String departmentName;
+    private ArrayList<Employee> employees;  
+public Department(String departmentName) {
+        this.departmentName = departmentName;
+        this.employees = new ArrayList<>();
+    }
+  public void addEmployee(Employee employee) {
+        employees.add(employee);
+    }
+ public void displayDepartmentInfo() {
+        System.out.println("Department: " + departmentName);
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+       Battery battery1 = new Battery(4000);
+  Mobile mobile1 = new Mobile("iPhone 13", battery1);
+  Employee employee1 = new Employee("Alice", 101);
+        Employee employee2 = new Employee("Bob", 102);
+      Department department = new Department("Engineering");
+        department.addEmployee(employee1);
+        department.addEmployee(employee2);
+      System.out.println(mobile1);
+        department.displayDepartmentInfo();
+    }
+}
